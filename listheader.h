@@ -61,3 +61,5 @@ int ListDump(List* Lst, FILE* logfile);
 int ListDelete(List* Lst, int phys_ind, FILE* logfile);
 
 int ListDtor(List* Lst, FILE* logfile);
+
+int ListResize(List* Lst, FILE* logfile);

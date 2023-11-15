@@ -44,6 +44,16 @@ int main(){
 
     ListDelete(&Lst, phys_ind, logfile);        // удалить элемент после того, которому отвечает phys_ind (удалить третий)
 
+    ListDump(&Lst, logfile);
+
+    ListOutput(&Lst, logfile);
+
+    phys_ind = ListSearch(&Lst, 2, logfile);
+
+    ListDelete(&Lst, phys_ind, logfile);
+
+    ListDump(&Lst, logfile);
+
     ListOutput(&Lst, logfile);
 
     ListDtor(&Lst, logfile);

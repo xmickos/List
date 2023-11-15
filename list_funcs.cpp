@@ -97,11 +97,21 @@ int ListDelete(List* Lst, int phys_ind, FILE* logfile){
     stored_prev = Lst->prev[phys_ind];
     stored_next = Lst->next[phys_ind];
 
+    if(Lst->head == phys_ind){
+        Lst->head = Lst->next[phys_ind];
+    }
+
+    if(Lst->tail == phys_ind){
+        Lst->tail = Lst->prev[phys_ind];
+    }
+
     Lst->next[stored_prev] = Lst->next[phys_ind];
     Lst->prev[stored_next] = Lst->prev[phys_ind];
     Lst->data[phys_ind] = 0;
     Lst->prev[phys_ind] = -1;
-    Lst->next[phys_ind] = -1;
+
+    Lst->next[phys_ind] = Lst->free;
+    Lst->free = phys_ind;
 
     return 0;
 
@@ -114,8 +124,12 @@ int ListSearch(List* Lst, int logical_indx, FILE* logfile){
 
     if(logical_indx == 1) return logical_indx;
 
-    for(int i = 1; i < Lst->capacity; i++){
-        if(Lst->next[i] == logical_indx) return i;
+
+
+    for(int i = 1, next = Lst->head; i < Lst->size + 1; i++){
+        // if(Lst->next[i] == logical_indx) return i;
+        if(i == logical_indx) return next;
+        next = Lst->next[next];
     }
 
     return -1;
@@ -184,7 +198,33 @@ int ListDtor(List* Lst, FILE* logfile){
     return 0;
 }
 
+int ListResize(List* Lst, FILE* logfile){
+
+    return 0;
+}
+
 int ListVerificator(List* Lst, FILE* logfile){
+
+    GENERAL_VERIFICATION(Lst, logfile);
+    ECHO(logfile);
+
+    int test_next = Lst->head, test_prev = Lst->tail;
+
+    for(int i = 1; i < Lst->size - 1; i++){
+        test_next = Lst->next[test_next];
+        test_prev = Lst->prev[test_prev];
+    }
+
+    if(test_next == Lst->tail && test_prev == Lst->head){
+        fprintf(logfile, "List verificated succesfully!\n");
+    }else{
+        fprintf(logfile, "The list is inconsistent!\nExiting...");
+        return -1;
+    }
+
+
+
+
 
     return 0;
 }
