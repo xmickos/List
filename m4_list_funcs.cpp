@@ -1,3 +1,19 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include "listheader.h"
 
 int ListCtor(List* Lst, int capacity, FILE* logfile){
@@ -210,10 +226,32 @@ int ListGraphDump(List* Lst, FILE* output, FILE* logfile){
     int curr_ind = Lst->head;
     printf("list head is %d\n", Lst->head);
 
-    fprintf(output, STRINGIFY(GRAPH_INIT) STRINGIFY(NODE_SETTINGS) STRINGIFY(EDGE_SETTINGS));
+    fprintf(output, STRINGIFY(digraph g {   \n                                                                            \
+fontname="Helvetica,Arial,sans-serif"\n                                                                          \
+node [fontname="Helvetica,Arial,sans-serif"]\n                                                                   \
+edge [fontname="Helvetica,Arial,sans-serif"]\n                                                                   \
+graph [\n                                                                                                        \
+rankdir = "LR"\n                                                                                                 \
+];
+) STRINGIFY(node [\n                                                                                 \
+fontsize = "16"\n                                                                                                \
+shape = "square"\n                                                                                               \
+];\n\n) STRINGIFY(edge [\n                                                                                 \
+style="solid"\n                                                                                                  \
+arrowhead="vee"\n                                                                                                \
+penwidth=2\n                                                                                                     \
+];                                                                                                               \
+\n\n));
 
     while(Lst->data[curr_ind] != -2){
-        fprintf(output, STRINGIFY(NODE_INIT(node %d, data: %d, next: %d, prev: %d)), curr_ind,
+        fprintf(output, STRINGIFY("node %d" [\n
+   label=<\n
+     <table border="0" cellborder="1" cellspacing="0">\n
+       <tr><td bgcolor="#f57777">data: %d</td></tr>\n
+       <tr><td bgcolor="lightblue"><font color="#0000ff">next: %d</font></td></tr>\n
+       <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: %d</font></td></tr>\n
+     </table>>\n
+  ];), curr_ind,
                 Lst->data[curr_ind], Lst->next[curr_ind], Lst->prev[curr_ind]);
 
         printf("next: %d, data: %d\n", Lst->next[curr_ind], Lst->data[curr_ind]);
@@ -223,19 +261,25 @@ int ListGraphDump(List* Lst, FILE* output, FILE* logfile){
     curr_ind = Lst->head;
 
     while(Lst->data[curr_ind] != -2){
-        fprintf(output, STRINGIFY(NODE_CONNECT(node %d, node %d, f0)), curr_ind, Lst->next[curr_ind]);
+        fprintf(output, STRINGIFY("node %d":f0 -> "node %d":f0 [\n                                                                        \
+id = 0\n                                                                                                        \
+];                                                                                                               \
+\n\n), curr_ind, Lst->next[curr_ind]);
         curr_ind = Lst->next[curr_ind];
     }
 
     curr_ind = Lst->head;
 
     while(Lst->data[curr_ind] != -2){
-        fprintf(output, STRINGIFY(NODE_CONNECT(node %d, node %d, f2)), Lst->next[curr_ind], curr_ind);
+        fprintf(output, STRINGIFY("node %d":f2 -> "node %d":f2 [\n                                                                        \
+id = 0\n                                                                                                        \
+];                                                                                                               \
+\n\n), Lst->next[curr_ind], curr_ind);
         curr_ind = Lst->next[curr_ind];
         printf("prev: %d, next: %d, data: %d\n", Lst->prev[curr_ind], Lst->next[curr_ind], Lst->data[curr_ind]);
     }
 
-    fprintf(output, STRINGIFY(CLOSE));
+    fprintf(output, STRINGIFY(\n}));
 
     return 0;
 }

@@ -1,4 +1,4 @@
-[36, ListCtor, list_funcs.cpp] List created successfully!
+[52, ListCtor, m4_list_funcs.cpp] List created successfully!
 
 Inserting: 1, free_elem: 1
 

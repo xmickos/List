@@ -9,4 +9,4 @@ all:
 	-Wno-varargs -Wstack-protector -fcheck-new -fsized-deallocation -fstack-protector -fstrict-overflow 						\
 	-fno-omit-frame-pointer -Wlarger-than=8192 -Wframe-larger-than=8192 -fPIE													\
 	-fsanitize=address,bool,bounds,enum,float-cast-overflow,float-divide-by-zero,integer-divide-by-zero,				\
-	main.cpp list_funcs.cpp -o list
+	main.cpp m4_list_funcs.cpp -o list

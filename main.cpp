@@ -3,6 +3,7 @@
 int main(){
 
     FILE* logfile = fopen("logfile.txt", "w");
+    FILE* dot_file = fopen("dot_example.dot", "w");
 
     List Lst = {};
     int free_elem = -1, phys_ind = -1, insert_output = -1;
@@ -38,6 +39,8 @@ int main(){
 
     ListDump(&Lst, logfile);
 
+    ListGraphDump(&Lst, dot_file, logfile);
+
     ListOutput(&Lst, logfile);
 
     phys_ind = ListSearch(&Lst, 2, logfile);
@@ -55,6 +58,7 @@ int main(){
     ListDump(&Lst, logfile);
 
     ListOutput(&Lst, logfile);
+
 
     ListDtor(&Lst, logfile);
     return 0;

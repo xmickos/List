@@ -1,0 +1,41 @@
+define(`GRAPH_INIT',`digraph g {   \n                                                                            \
+fontname="Helvetica,Arial,sans-serif"\n                                                                          \
+node [fontname="Helvetica,Arial,sans-serif"]\n                                                                   \
+edge [fontname="Helvetica,Arial,sans-serif"]\n                                                                   \
+graph [\n                                                                                                        \
+rankdir = "LR"\n                                                                                                 \
+];
+')
+
+
+define(`NODE_CONNECT',`"$1":$3 -> "$2":$3 [\n                                                                        \
+id = 0\n                                                                                                        \
+];                                                                                                               \
+\n\n')
+
+define(`NODE_SETTINGS',`node [\n                                                                                 \
+fontsize = "16"\n                                                                                                \
+shape = "square"\n                                                                                               \
+];\n\n')
+
+define(`EDGE_SETTINGS',`edge [\n                                                                                 \
+style="solid"\n                                                                                                  \
+arrowhead="vee"\n                                                                                                \
+penwidth=2\n                                                                                                     \
+];                                                                                                               \
+\n\n')
+
+
+
+define(`NODE_INIT',`"$1" [\n
+   label=<\n
+     <table border="0" cellborder="1" cellspacing="0">\n
+       <tr><td bgcolor="#f57777">$2</td></tr>\n
+       <tr><td bgcolor="lightblue"><font color="#0000ff">$3</font></td></tr>\n
+       <tr><td bgcolor="#f0e3ff"><font color="#ff1020">$4</font></td></tr>\n
+     </table>>\n
+  ];')
+
+define(`CLOSE',`\n}')
+
+define(`ABOBA',`aboba!\n')
