@@ -56,6 +56,248 @@ shape=record];
  label=<
  <table border="0" cellborder="1" cellspacing="0">
  <tr><td bgcolor="#f57777">data: 123</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 3</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 5</font></td></tr>
+ </table>>
+ ];
+
+
+"node 3" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#f57777">data: 30</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 4</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 6</font></td></tr>
+ </table>>
+ ];
+
+
+"node 4" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#581845"><font color="#FF5733">Tail</font></td></tr>
+ <tr><td bgcolor="#f57777">data 40</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 0</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 3</font></td></tr>
+ </table>>
+ ];
+
+"node 1" -> "node 2"
+
+"node 2" -> "node 5"
+
+"node 5" -> "node 6"
+
+"node 6" -> "node 3"
+
+"node 3" -> "node 4"
+
+"node 2" -> "node 1"
+
+"node 5" -> "node 2"
+
+"node 6" -> "node 5"
+
+"node 3" -> "node 6"
+
+"node 4" -> "node 3"
+
+
+}
+
+digraph g { 
+ fontname="Helvetica,Arial,sans-serif"
+ node [fontname="Helvetica,Arial,sans-serif"]
+ edge [fontname="Helvetica,Arial,sans-serif"]
+ graph [
+ rankdir = "LR"
+ ];
+node [
+ fontsize = "16"
+ shape = "square"
+ ];
+
+edge [
+ style="solid"
+ arrowhead="vee"
+ penwidth=2
+ ]; 
+
+
+"watermark node" [ label = "dump 2"
+shape=record];
+
+
+"node 1" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#581845"><font color="#FF5733">Head</font></td></tr>
+ <tr><td bgcolor="#f57777">data 10</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 2</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 0</font></td></tr>
+ </table>>
+ ];
+
+
+"node 2" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#f57777">data: 20</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 5</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 1</font></td></tr>
+ </table>>
+ ];
+
+
+"node 5" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#f57777">data: 21</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 6</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 2</font></td></tr>
+ </table>>
+ ];
+
+
+"node 6" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#f57777">data: 123</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 7</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 5</font></td></tr>
+ </table>>
+ ];
+
+
+"node 7" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#f57777">data: 434</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 8</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 6</font></td></tr>
+ </table>>
+ ];
+
+
+"node 8" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#f57777">data: 333</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 3</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 7</font></td></tr>
+ </table>>
+ ];
+
+
+"node 3" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#f57777">data: 30</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 4</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 8</font></td></tr>
+ </table>>
+ ];
+
+
+"node 4" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#581845"><font color="#FF5733">Tail</font></td></tr>
+ <tr><td bgcolor="#f57777">data 40</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 0</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 3</font></td></tr>
+ </table>>
+ ];
+
+"node 1" -> "node 2"
+
+"node 2" -> "node 5"
+
+"node 5" -> "node 6"
+
+"node 6" -> "node 7"
+
+"node 7" -> "node 8"
+
+"node 8" -> "node 3"
+
+"node 3" -> "node 4"
+
+"node 2" -> "node 1"
+
+"node 5" -> "node 2"
+
+"node 6" -> "node 5"
+
+"node 7" -> "node 6"
+
+"node 8" -> "node 7"
+
+"node 3" -> "node 8"
+
+"node 4" -> "node 3"
+
+
+}
+
+digraph g { 
+ fontname="Helvetica,Arial,sans-serif"
+ node [fontname="Helvetica,Arial,sans-serif"]
+ edge [fontname="Helvetica,Arial,sans-serif"]
+ graph [
+ rankdir = "LR"
+ ];
+node [
+ fontsize = "16"
+ shape = "square"
+ ];
+
+edge [
+ style="solid"
+ arrowhead="vee"
+ penwidth=2
+ ]; 
+
+
+"watermark node" [ label = "dump 3"
+shape=record];
+
+
+"node 1" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#581845"><font color="#FF5733">Head</font></td></tr>
+ <tr><td bgcolor="#f57777">data 10</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 2</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 0</font></td></tr>
+ </table>>
+ ];
+
+
+"node 2" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#f57777">data: 20</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 5</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 1</font></td></tr>
+ </table>>
+ ];
+
+
+"node 5" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#f57777">data: 21</td></tr>
+ <tr><td bgcolor="lightblue"><font color="#0000ff">next: 6</font></td></tr>
+ <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 2</font></td></tr>
+ </table>>
+ ];
+
+
+"node 6" [
+ label=<
+ <table border="0" cellborder="1" cellspacing="0">
+ <tr><td bgcolor="#f57777">data: 123</td></tr>
  <tr><td bgcolor="lightblue"><font color="#0000ff">next: 7</font></td></tr>
  <tr><td bgcolor="#f0e3ff"><font color="#ff1020">prev: 5</font></td></tr>
  </table>>

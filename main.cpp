@@ -63,6 +63,7 @@ int main(){
     ListDump(&Lst, logfile, 0);
     insert_output = ListInsert(&Lst, insert_output, 123, logfile);
     ListDump(&Lst, logfile, 0);
+    ListGraphDump(&Lst, dot_file, html_output, logfile);
     insert_output = ListInsert(&Lst, insert_output, 434, logfile);
     ListDump(&Lst, logfile, 0);
     insert_output = ListInsert(&Lst, insert_output, 333, logfile);
@@ -72,6 +73,8 @@ int main(){
     ListDump(&Lst, logfile, 0);
 
     ListOutput(&Lst, logfile);
+
+    ListGraphDump(&Lst, dot_file, html_output, logfile);
 
     ListDtor(&Lst, logfile);
     return 0;

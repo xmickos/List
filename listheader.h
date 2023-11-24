@@ -83,6 +83,7 @@ shape = "record"                                                                
 
 #define CLOSE()    \n}
 
+#define HTML_DEFAULT_BORDER_VALUE "1"
 
 #define NODE_HEAD_INIT this text cant be executed, check readme.md if you see this
 
@@ -94,13 +95,13 @@ shape = "record"                                                                
 
 #define HTML_INIT "<html>\n\t<body>\n\t"
 
-#define HTML_PUT_IMG(name) "\n\t<br>\n\t<img src = \""#name"\">\n\t<br>"
+#define HTML_PUT_IMG(name) "\n\t<br>\n\t<img src = \"" name "\">\n\t<br>"
 
 #define HTML_CLOSE "\n\t</body>\n</html>\n"
 
 #define simple_safari_syscall "open -a Safari /Users/xmickos/Desktop/govno.jopa.kosmos/Ded_second_try/List/index.html"
 
-#define HTML_TABLE_OPEN "<table border=\"2\">\n"
+#define HTML_TABLE_OPEN(border_value) "<table border=\"" border_value "\">\n"
 
 #define HTML_TABLE_HEADER_OPEN "\t<thead>\n\t<tr>\n"
 
@@ -139,7 +140,22 @@ shape = "record"                                                                
         for(size_t i = 0; i < Lst->capacity; i++){                                                                                                                  \
             fprintf(logfile, "%4d", Lst->prev[i]);                                                                                                                  \
         }                                                                                                                                                           \
-        fprintf(logfile, "\n\n");}while(0)                                                                                                                                   \
+        fprintf(logfile, "\n\n");}while(0)                                                                                                                          \
+
+#define HTML_LIST_PARAMS_TABLE "<table>\n                                                                                                                             \
+  \t<tr>\n                                                                                                                                                              \
+    \t\t<th>Size</th>\n                                                                                                                                                   \
+    \t\t<th>Head</th>\n                                                                                                                                                   \
+    \t\t<th>Tail</th>\n                                                                                                                                                   \
+    \t\t<th>Free</th>\n                                                                                                                                                   \
+  \t</tr>\n                                                                                                                                                             \
+  \t<tr>\n                                                                                                                                                              \
+    \t\t<td>%4d</td>\n                                                                                                                                                    \
+    \t\t<td>%4d</td>\n                                                                                                                                                    \
+    \t\t<td>%4d</td>\n                                                                                                                                                    \
+    \t\t<td>%4d</td>\n                                                                                                                                                    \
+  \t</tr>\n                                                                                                                                                             \
+</table>"
 
 int ListCtor(List* Lst, size_t capacity, FILE* logfile);
 

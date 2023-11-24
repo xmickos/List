@@ -261,17 +261,17 @@ int ListGraphDump(List* Lst, FILE* output, FILE* html_output, FILE* logfile){
 
     fprintf(output, STRINGIFY(CLOSE));
 
-    Lst->num_of_graph_dumps += 1;
-
         // Creating .html file
 
     fprintf(html_output, HTML_INIT);
-    fprintf(html_output, HTML_PUT_IMG(dot_example.dot.png));
-    fprintf(html_output, "Size: [%4d]<br>\n", Lst->size);
-    fprintf(html_output, "Head: [%4d]<br>\n", Lst->head);
-    fprintf(html_output, "Tail: [%4d]<br>\n", Lst->tail);
-    fprintf(html_output, "Free: [%4d]<br>\n", Lst->free);
-    fprintf(html_output, HTML_TABLE_OPEN);
+    if(Lst->num_of_graph_dumps == 1){
+        fprintf(html_output, HTML_PUT_IMG("dot_example.dot.png"));
+    }else{
+        fprintf(html_output, HTML_PUT_IMG("dot_example.dot.%zu.png"), Lst->num_of_graph_dumps);
+    }
+
+    fprintf(html_output, HTML_LIST_PARAMS_TABLE, Lst->size, Lst->tail, Lst->head, Lst->free);
+    fprintf(html_output, HTML_TABLE_OPEN(HTML_DEFAULT_BORDER_VALUE));
     fprintf(html_output, HTML_TABLE_HEADER_OPEN);
 
     fprintf(html_output, HTML_TABLE_HEADER_INFO("indx"));
@@ -307,8 +307,8 @@ int ListGraphDump(List* Lst, FILE* output, FILE* html_output, FILE* logfile){
 
     fprintf(html_output, HTML_TABLE_CLOSE);
     fprintf(html_output, HTML_CLOSE);
-    fprintf(html_output, HTML_PUT_IMG(dot_example.dot.2.png));
 
+    Lst->num_of_graph_dumps++;
 
     system(simple_safari_syscall);
     return 0;
